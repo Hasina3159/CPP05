@@ -6,7 +6,7 @@
 /*   By: ntodisoa <ntodisoa@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/15 13:33:28 by ntodisoa          #+#    #+#             */
-/*   Updated: 2025/03/27 14:30:43 by ntodisoa         ###   ########.fr       */
+/*   Updated: 2025/03/27 15:17:28 by ntodisoa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,9 @@
 #include <iostream>
 #include <cstring>
 #include <sstream>
+#include "Form.hpp"
+
+class Form;
 
 class Bureaucrat
 {
@@ -35,19 +38,12 @@ public:
     Bureaucrat (const std::string &name, const int &grade);
     Bureaucrat (const Bureaucrat &other);
     Bureaucrat &operator=(const Bureaucrat &other);
+    ~Bureaucrat ();
     const std::string &getName() const;
     unsigned int getGrade() const;
     void incrementGrade();
     void decrementGrade();
-    ~Bureaucrat ();
+	void signForm(Form &form);
 };
-
-template <typename T>
-std::string to_string(const T& value)
-{
-    std::ostringstream os;
-    os << value;
-    return (std::string(os.str()));
-}
 
 std::ostream &operator<<(std::ostream &out, const Bureaucrat &bureaucrat);
