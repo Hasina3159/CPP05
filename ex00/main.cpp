@@ -15,5 +15,14 @@
 
 int main(int argc, char **argv)
 {
+    (void)argc;
+    (void)argv; 
+    Bureaucrat bureaucrat("John", 150);
+    std::cout << bureaucrat << std::endl;
+    bureaucrat.incrementGrade();
+    std::cout << bureaucrat << std::endl;
+    bureaucrat.decrementGrade();
+    bureaucrat.decrementGrade();
+    std::cout << bureaucrat << std::endl;
     return (0);
 }
