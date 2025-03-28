@@ -1,0 +1,30 @@
+NAME = form
+
+CXX = c++
+
+CPPFLAGS = -Wall -Werror -Wextra -std=c++98
+
+SRCS = $(shell find . -name "*.cpp" | tr '\n' ' ')
+
+OBJS = $(SRCS:.cpp=.o)
+
+$%.o		:	%.cpp
+	$(CXX) $(CPPFLAGS) -c $< -o $@
+
+$(NAME)		:	$(OBJS)
+	$(CXX) $(CPPFLAGS) $(SRCS) -o $(NAME)
+
+all			:	$(NAME)
+
+clean		:
+	rm -rf $(OBJS)
+
+fclean		:	clean
+	rm -rf $(NAME)
+
+re			:	fclean all
+
+better		: re
+	rm -rf $(OBJS)
+
+.PHONY		:	all clean fclean re better
